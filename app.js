@@ -38,7 +38,6 @@ const { SiteVisit } = require("./models");
 app.use(async (req, res, next) => {
 
     try {
-        console.error('THE MIMI INC')
         await SiteVisit.create({
 
             page_url: req.originalUrl,

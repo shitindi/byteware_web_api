@@ -1,4 +1,6 @@
 // controllers/contactFormController.js
+const { logData } = require('../helpers/logger');
+
 const { ContactForm } = require("../models");
 
 exports.createContact = async (req, res) => {
@@ -14,6 +16,7 @@ exports.createContact = async (req, res) => {
 
     res.status(201).json(contact);
   } catch (error) {
+        logData('createContact: ' + error)
     res.status(500).json({ message: error.message });
   }
 };
@@ -26,6 +29,7 @@ exports.getContacts = async (req, res) => {
 
     res.json(contacts);
   } catch (error) {
+    logData('getContacts: ' + error)
     res.status(500).json({ message: error.message });
   }
 };
@@ -40,6 +44,7 @@ exports.getContactById = async (req, res) => {
 
     res.json(contact);
   } catch (error) {
+    logData('getContactById: ' + error)
     res.status(500).json({ message: error.message });
   }
 };
@@ -63,6 +68,7 @@ exports.updateContact = async (req, res) => {
 
     res.json(contact);
   } catch (error) {
+    logData('updateContact: ' + error)
     res.status(500).json({ message: error.message });
   }
 };
@@ -79,6 +85,7 @@ exports.deleteContact = async (req, res) => {
 
     res.json({ message: "Contact form deleted successfully" });
   } catch (error) {
+    logData('deleteContact: ' + error)
     res.status(500).json({ message: error.message });
   }
 };

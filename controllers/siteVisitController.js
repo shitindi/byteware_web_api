@@ -1,8 +1,10 @@
 // controllers/siteVisitController.js
+const { logData } = require('../helpers/logger');
+
 const { SiteVisit } = require("../models");
 
 exports.createVisit = async (req, res) => {
-  try {
+  try { 
     const visit = await SiteVisit.create({
       page_url: req.body.page_url,
       ip_address: req.ip,
@@ -12,6 +14,7 @@ exports.createVisit = async (req, res) => {
 
     res.status(201).json(visit);
   } catch (error) {
+    logData('createVisit: ' + error)
     res.status(500).json({ message: error.message });
   }
 };
@@ -24,6 +27,7 @@ exports.getVisits = async (req, res) => {
 
     res.json(visits);
   } catch (error) {
+     logData('getVisits: ' + error)
     res.status(500).json({ message: error.message });
   }
 };
@@ -38,6 +42,7 @@ exports.getVisitById = async (req, res) => {
 
     res.json(visit);
   } catch (error) {
+     logData('getVisitById: ' + error)
     res.status(500).json({ message: error.message });
   }
 };
@@ -54,6 +59,7 @@ exports.deleteVisit = async (req, res) => {
 
     res.json({ message: "Visit deleted successfully" });
   } catch (error) {
+    logData('deleteVisit: ' + error)
     res.status(500).json({ message: error.message });
   }
 };
@@ -64,6 +70,7 @@ exports.getVisitCount = async (req, res) => {
 
     res.json({ total_visits: total });
   } catch (error) {
+        logData('getVisitCount: ' + error)
     res.status(500).json({ message: error.message });
   }
 };
