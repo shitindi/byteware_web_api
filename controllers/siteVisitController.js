@@ -4,7 +4,7 @@ const { logData } = require('../helpers/logger');
 const { SiteVisit } = require("../models");
 
 const UAParser = require("ua-parser-js");
-const util = require("util");
+//const util = require("util");
 
 
 /**
@@ -266,8 +266,8 @@ exports.createVisit = async (req, res) => {
 
     return res.status(201).json(visit);
   } catch (error) {
-    //logData(`createVisit: ${error.stack || error.message}`);
-  logData(`createVisit: ${util.inspect(error, { depth: null, colors: false })}`);
+    logData(`createVisit: ${error}`);
+  //logData(`createVisit: ${util.inspect(error, { depth: null, colors: false })}`);
     return res.status(500).json({
       message: "Failed to record site visit",
     });
