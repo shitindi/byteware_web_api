@@ -1,2 +1,4 @@
 1. npm init
 2. npm install express sequelize pg pg-hstore dotenv cors
+3. Install user agent parser
+ # npm install ua-parser-js@1     

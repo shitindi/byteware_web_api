@@ -20,6 +20,7 @@ app.use(cors());
 //     "https://byteware.co.tz"
 //   ]
 // }));
+app.set("trust proxy", 1);
 
 app.use(express.json());
 
