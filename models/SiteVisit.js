@@ -1,6 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
+module.exports = (sequelize, DataTypes) => {
 const SiteVisit = sequelize.define(
   "SiteVisit",
   {
@@ -144,5 +145,6 @@ const SiteVisit = sequelize.define(
     timestamps: false,
   }
 );
+return SiteVisit
+}
 
-module.exports = SiteVisit;
